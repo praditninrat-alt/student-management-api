@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using StudentManagement.Api.Services;
 
 namespace StudentManagement.Api.Controllers
 {
@@ -6,17 +7,17 @@ namespace StudentManagement.Api.Controllers
     [Route("api/students")]
     public class StudentController : ControllerBase
     {
-        private readonly IStudentRepository _repository;
+        private readonly IStudentService _service;
 
-        public StudentController(IStudentRepository repository)
+        public StudentController(IStudentService service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         [HttpGet]
         public IActionResult GetStudents()
         {
-            return Ok(_repository.GetAll());
+            return Ok(_service.GetStudents());
         }
     }
 }
