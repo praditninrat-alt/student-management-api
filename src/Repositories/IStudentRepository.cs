@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using StudentManagement.Api.Models;
 
 namespace StudentManagement.Api.Repositories
 {
